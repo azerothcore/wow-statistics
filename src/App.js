@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Chart from "./components/shared/Chart";
+import axios from "axios";
+import style from "./components/shared/Chart.css"
+import Loader from "react-loader-spinner";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+    state = {
+        inputData: null
+    }
+
+    componentDidMount() {
+        axios.get(process.env.REACT_APP_API_ENDPOINT)
+            .then(response => {
+                this.setState({inputData: response.data})
+            })
+            .catch(error => {
+                console.error('Could not get data for the charts' + error);
+            });
+    }
+
+    render() {
+        if (this.state.inputData === null) {
+            return (
+                <div>
+                    <Loader type="Puff" color="#00BFFF" height={100} width={100} timeout={3000}/>
+                </div>
+            );
+        } else {
+            return (
+                <div className="chart_container">
+                    <Chart data={this.state.inputData} chartName="race-chart" chartType="race"/>
+                    <Chart data={this.state.inputData} chartName="class-chart" chartType="class"/>
+                </div>
+            );
+
+        }
+    }
 }
 
 export default App;
