@@ -4,13 +4,23 @@
     width: 45%;
     height: 100%;
     background-color: black;
-    border: 1px solid green;
-
+    border: 1px solid white;
 }
 
 .chart_container {
     height: 600px;
     display: flex;
     justify-content: space-around;
-    margin-top: 2%;
+    margin-top: 5%;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body {
+    background-color: black;
 }
