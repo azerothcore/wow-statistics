@@ -29,9 +29,12 @@ class App extends Component {
             );
         } else {
             return (
-                <div className="chart_container">
-                    <Chart data={this.state.inputData} chartName="race-chart" chartType="race"/>
-                    <Chart data={this.state.inputData} chartName="class-chart" chartType="class"/>
+                <div className="App">
+                    <h2 className="title">{!!process.env.REACT_APP_SERVER_TITLE ? process.env.REACT_APP_SERVER_TITLE : 'WoW'} Statistics</h2>
+                    <div className="chart_container">
+                        <Chart data={this.state.inputData} chartName="race-chart" chartType="race"/>
+                        <Chart data={this.state.inputData} chartName="class-chart" chartType="class"/>
+                    </div>
                 </div>
             );
 

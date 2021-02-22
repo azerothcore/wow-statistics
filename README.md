@@ -1,5 +1,5 @@
 # AzerothCore - Charts
-React chart component to display the race and class population. 
+React chart component to display the race and class population.
 
 
 ## Internals
@@ -13,6 +13,7 @@ Inspired by [this model](https://www.amcharts.com/demos/column-chart-images-top/
 Create a .env file and fill the properties:
 - REACT_APP_API_BASE_URL
 - REACT_APP_API_ENDPOINT
+- REACT_APP_SERVER_TITLE
 
 The format returned by the API backend should be:
 ```json
