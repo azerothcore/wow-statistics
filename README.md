@@ -1,6 +1,7 @@
 # AzerothCore - Charts
 React chart component to display the race and class population.
 
+![WoW Statistics](https://raw.githubusercontent.com/azerothcore/wow-statistics/master/wow-statistics.png)
 
 ## Internals
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
