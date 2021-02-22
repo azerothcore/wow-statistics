@@ -87,7 +87,9 @@ const createChart = (data, chartName, chartType) => {
 
     // add text labels on y chart
     let valueLabel = series.bullets.push(new am4charts.LabelBullet());
-    valueLabel.label.fontSize = 10;
+    valueLabel.label.fontSize = 13;
+    valueLabel.label.align = 'center';
+    valueLabel.label.fill = am4core.color('#fff');
     valueLabel.label.text = "{valueY} \n {valueY.percent}%";
     valueLabel.horizontalCenter = "left";
     valueLabel.verticalCenter = "top";

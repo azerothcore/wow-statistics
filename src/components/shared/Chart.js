@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Util from "./Util";
-import chart from '../shared/Chart.css'
+import '../shared/Chart.css';
 
 class Chart extends Component {
 
