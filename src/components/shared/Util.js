@@ -16,12 +16,12 @@ const createChart = (data, chartName, chartType) => {
 
     const myMap = groupBy(data, chartType);
 
-    localChart.data = Object.keys(myMap).map(key => ({
+    localChart.data = Object.keys(myMap).map((key) => ({
         //add dynamic property
         [chartType] : key,
         count: myMap[key],
         color: localChart.colors.next(),
-        bullet: process.env.PUBLIC_URL + '/wow-icons/' + chartType + '/' + key + '.gif'
+        bullet: process.env.PUBLIC_URL + '/wow-icons/' + chartType + '/' + (chartType === 'race' ? `${key}-${Math.round(Math.random())}` : key) + '.gif'
     }));
 
     // Create axis
