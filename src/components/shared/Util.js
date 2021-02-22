@@ -34,7 +34,7 @@ const createChart = (data, chartName, chartType) => {
         [chartType] : key,
         count: myMap[key],
         color: colors[index],
-        bullet: process.env.PUBLIC_URL + '/wow-icons/' + chartType + '/' + key + '.gif'
+        bullet: process.env.PUBLIC_URL + '/wow-icons/' + chartType + '/' + (chartType === 'race' ? `${key}-${Math.round(Math.random())}` : key) + '.gif'
     }));
 
     // Create axis
