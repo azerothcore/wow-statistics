@@ -8,17 +8,32 @@ const groupBy = (list, props) => {
     }, []);
 }
 
-const colors = [
-    '#005662',
-    '#9f0000',
-    '#b53d00',
-    '#c56000',
-    '#c17900',
-    '#6c6f00',
-    '#38006b',
-    '#005005',
-    '#003c8f',
-    '#003d33'
+const raceColors = [
+    '#fff468', // Human
+    '#abd473', // Orc
+    '#ff7c0a', // Dwarf
+    '#f48cba', // Night Elf
+    '#8e8e8e', // Undead
+    '#9c786c', // Tauren
+    '#e0e0e0', // Gnome
+    '#0070dd', // Troll
+    '',
+    '#f9683a', // Blood Elf
+    '#0096aa'  // Draenei
+];
+
+const classColors = [
+    '#c69b6d', // Warrior
+    '#f48cba', // Paladin
+    '#abd473', // Hunter
+    '#fff468', // Rogue
+    '#ffffff', // Priest
+    '#c41e3a', // Death Knight
+    '#0070dd', // Shaman
+    '#3fc7eb', // Mage
+    '#8788ee', // Warlock
+    '',
+    '#ff7c0a'  // Druid
 ];
 
 const createChart = (data, chartName, chartType) => {
@@ -29,11 +44,11 @@ const createChart = (data, chartName, chartType) => {
 
     const myMap = groupBy(data, chartType);
 
-    localChart.data = Object.keys(myMap).map((key, index) => ({
+    localChart.data = Object.keys(myMap).map(key => ({
         //add dynamic property
         [chartType] : key,
         count: myMap[key],
-        color: colors[index],
+        color: chartType === 'race' ? raceColors[key-1] : classColors[key-1],
         bullet: process.env.PUBLIC_URL + '/wow-icons/' + chartType + '/' + (chartType === 'race' ? `${key}-${Math.round(Math.random())}` : key) + '.gif'
     }));
 
@@ -89,7 +104,7 @@ const createChart = (data, chartName, chartType) => {
     let valueLabel = series.bullets.push(new am4charts.LabelBullet());
     valueLabel.label.fontSize = 13;
     valueLabel.label.align = 'center';
-    valueLabel.label.fill = am4core.color('#fff');
+    valueLabel.label.fill = am4core.color('#000');
     valueLabel.label.text = "{valueY} \n {valueY.percent}%";
     valueLabel.horizontalCenter = "left";
     valueLabel.verticalCenter = "top";
