@@ -1,22 +1,27 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import Util from "./Util";
 import '../shared/Chart.css';
 
-class Chart extends Component {
 
-    componentDidMount() {
-        this.chart = Util.createChart(this.props.data, this.props.chartName, this.props.chartType);
-    }
+function Chart(props) {
 
-    componentWillUnmount() {
-        if (this.chart) {
-            this.chart.dispose();
-        }
-    }
+    const [chart, setChart] = useState();
 
-    render() {
-        return <div id={this.props.chartName} className="chart"/>;
-    }
+    useEffect(() => {
+            setChart(Util.createChart(props.data, props.chartName, props.chartType));
+
+            return function cleanup() {
+                if (chart) {
+                    chart.dispose();
+                }
+            }
+        },
+        [chart, props.chartName, props.chartType, props.data]);
+
+
+    return (
+        <div id={props.chartName} className="chart"/>
+    );
 }
 
 export default Chart;
