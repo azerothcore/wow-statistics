@@ -9,11 +9,9 @@ function App() {
     const [inputData, setInputData] = useState();
 
     useEffect(() => {
-        const fetchData = async () => {
-            const result = axios.get(process.env.REACT_APP_API_ENDPOINT);
-            setInputData(result.data);
-        };
-        fetchData();
+        axios.get(process.env.REACT_APP_API_ENDPOINT)
+            .then(value => setInputData(value))
+            .catch(error => console.error('Could not get data for the charts' + error));
     }, []);
 
 

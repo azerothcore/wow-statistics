@@ -39,7 +39,7 @@ const classColors = [
 const createChart = (data, chartName, chartType) => {
 
     // empty object do not render anything
-    if ((data && Object.keys(data).length === 0 && data.constructor === Object) || data === undefined) {
+    if ((data && Object.keys(data).length === 0 && data.constructor === Object)) {
         return;
     }
 
