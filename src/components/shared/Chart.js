@@ -8,16 +8,12 @@ function Chart(props) {
     const [chart, setChart] = useState();
 
     useEffect(() => {
-            setChart(Util.createChart(props.data, props.chartName, props.chartType));
+        setChart(Util.createChart(props.data, props.chartName, props.chartType));
 
-            return function cleanup() {
-                if (chart) {
-                    chart.dispose();
-                }
-            }
-        },
-        [props.chartName, props.chartType, props.data]);
-
+        return () => {
+            chart && chart.dispose();
+        }
+    }, [props.data]);
 
     return (
         <div id={props.chartName} className="chart"/>
