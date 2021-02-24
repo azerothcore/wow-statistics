@@ -16,7 +16,7 @@ function Chart(props) {
                 }
             }
         },
-        [chart, props.chartName, props.chartType, props.data]);
+        [props.chartName, props.chartType, props.data]);
 
 
     return (

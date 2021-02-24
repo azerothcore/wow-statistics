@@ -6,11 +6,11 @@ import Loader from "react-loader-spinner";
 
 function App() {
 
-    const [inputData, setInputData] = useState();
+    const [inputData, setInputData] = useState([]);
 
     useEffect(() => {
         axios.get(process.env.REACT_APP_API_ENDPOINT)
-            .then(value => setInputData(value))
+            .then(value => setInputData(value.data))
             .catch(error => console.error('Could not get data for the charts' + error));
     }, []);
 
