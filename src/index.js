@@ -4,9 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from "axios";
+import * as am4core from "@amcharts/amcharts4/core";
 
 
 axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+
+am4core.options.autoDispose = true; //https://github.com/amcharts/amcharts4/issues/2040
 
 ReactDOM.render(
   <React.StrictMode>
