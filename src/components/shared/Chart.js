@@ -7,13 +7,17 @@ function Chart(props) {
 
     const [chart, setChart] = useState();
 
+    const isBracketLevelChanged = props.bracketLevel !== 0;
+
     useEffect(() => {
-        setChart(Util.createChart(props.data, props.chartName, props.chartType));
+        const predicate = Util.getPredicateByBracketLevel(props.bracketLevel);
+        setChart(Util.createChart(props.data.filter(predicate), props.chartName, props.chartType));
 
         return () => {
             chart && chart.dispose();
         }
-    }, [props.data]);
+    }, [isBracketLevelChanged]);
+
 
     return (
         <div id={props.chartName} className="chart"/>

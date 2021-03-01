@@ -1,6 +1,22 @@
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
+let BRACKET_LEVEL_PREDICATES = {
+    "0": player => player, // no filter selected, default value
+    "1": player => player.level < 20,
+    "2": player => player.level > 20 && player.level < 30,
+    "3": player => player.level > 30 && player.level < 40,
+    "4": player => player.level > 40 && player.level < 50,
+    "5": player => player.level > 50 && player.level < 60,
+    "6": player => player.level > 60 && player.level < 70,
+    "7": player => player.level > 70,
+};
+
+const getPredicateByBracketLevel = (bracketLevel) => {
+    console.log("Selected val" + BRACKET_LEVEL_PREDICATES[bracketLevel]);
+    return BRACKET_LEVEL_PREDICATES[bracketLevel];
+}
+
 const groupBy = (list, props) => {
     return list.reduce((accumulator, currentValue) => {
         accumulator[currentValue[props]] = accumulator[currentValue[props]] + 1 || 1;
@@ -37,7 +53,6 @@ const classColors = [
 ];
 
 const createChart = (data, chartName, chartType) => {
-
     // empty object do not render anything
     if ((data && Object.keys(data).length === 0 && data.constructor === Object)) {
         return;
@@ -118,4 +133,4 @@ const createChart = (data, chartName, chartType) => {
     return localChart;
 }
 
-export default {groupBy, createChart};
+export default {groupBy, createChart, BRACKET_LEVEL_PREDICATES, getPredicateByBracketLevel};
