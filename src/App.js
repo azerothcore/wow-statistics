@@ -10,6 +10,15 @@ function App() {
     const [inputData, setInputData] = useState(test);
     const [bracketLevel, setBracketLevel] = useState(0);
 
+    const options = [
+        {"All levels": 1},
+        {"1-19": 2}
+        // {2: "20-29"},
+        // {3: "30-39"}
+        //    add more levels
+    ];
+
+
     // useEffect(() => {
     //     axios.get(process.env.REACT_APP_API_ENDPOINT)
     //         .then(value => setInputData(value.data))
@@ -28,9 +37,7 @@ function App() {
                 <h2 className="title">{!!process.env.REACT_APP_SERVER_TITLE ? process.env.REACT_APP_SERVER_TITLE : 'WoW'} Statistics</h2>
 
                 <select name="level" id="level" onChange={event => setBracketLevel(event.target.value)}>
-                    <option value="1">Level 1-19</option>
-                    <option value="2">Level 20-29</option>
-                    <option value="3">Level 30-39</option>
+                    {Object.keys(options).map(key => (<option key={options[key]} value={key}>{key}</option>))}
                 </select>
 
                 <div className="chart_container">

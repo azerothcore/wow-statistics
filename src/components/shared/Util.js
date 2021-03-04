@@ -13,7 +13,7 @@ let BRACKET_LEVEL_PREDICATES = {
 };
 
 const getPredicateByBracketLevel = (bracketLevel) => {
-    console.log("Selected val" + BRACKET_LEVEL_PREDICATES[bracketLevel]);
+    console.log("Selected predicate: " + BRACKET_LEVEL_PREDICATES[bracketLevel]);
     return BRACKET_LEVEL_PREDICATES[bracketLevel];
 }
 

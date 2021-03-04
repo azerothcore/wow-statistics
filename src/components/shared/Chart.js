@@ -7,8 +7,6 @@ function Chart(props) {
 
     const [chart, setChart] = useState();
 
-    const isBracketLevelChanged = props.bracketLevel !== 0;
-
     useEffect(() => {
         const predicate = Util.getPredicateByBracketLevel(props.bracketLevel);
         setChart(Util.createChart(props.data.filter(predicate), props.chartName, props.chartType));
@@ -16,7 +14,7 @@ function Chart(props) {
         return () => {
             chart && chart.dispose();
         }
-    }, [isBracketLevelChanged]);
+    }, [props.bracketLevel]);
 
 
     return (
