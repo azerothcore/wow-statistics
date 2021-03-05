@@ -23,7 +23,7 @@ const Chart: React.FC<ChartProps> = ({
     };
   }, [data]);
 
-  return <div id={chartName} className="chart" />;
+  return <div id={chartName} className='chart' />;
 };
 
 export default Chart;

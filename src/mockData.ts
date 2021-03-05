@@ -1,7 +1,7 @@
 export let mockData = [
   {
     guid: 34,
-    name: "Lanaya",
+    name: 'Lanaya',
     race: 11,
     class: 2,
     gender: 1,
@@ -10,11 +10,11 @@ export let mockData = [
     instance_id: 0,
     zone: 44,
     guildId: 1,
-    guildName: "The Alliance",
+    guildName: 'The Alliance',
   },
   {
     guid: 1992,
-    name: "Margareth",
+    name: 'Margareth',
     race: 7,
     class: 8,
     gender: 1,
@@ -27,7 +27,7 @@ export let mockData = [
   },
   {
     guid: 1991,
-    name: "Leo",
+    name: 'Leo',
     race: 5,
     class: 4,
     gender: 2,
@@ -40,7 +40,7 @@ export let mockData = [
   },
   {
     guid: 1990,
-    name: "John",
+    name: 'John',
     race: 10,
     class: 1,
     gender: 2,
@@ -53,7 +53,7 @@ export let mockData = [
   },
   {
     guid: 1988,
-    name: "Jenny",
+    name: 'Jenny',
     race: 2,
     class: 3,
     gender: 2,
