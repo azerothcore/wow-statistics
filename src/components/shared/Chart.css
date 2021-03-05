@@ -1,32 +1,36 @@
 /*We can use scoped css for each component but the setting were almost the same everytime*/
+body {
+  background-color: black;
+}
+
 .chart {
-    float: left;
-    width: 45%;
-    height: 100%;
-    background-color: black;
-    border: 1px solid rgba(255,255,255,0.3); /* white with a bit of opacity */
+  width: 45%;
+  height: 100%;
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* white with a bit of opacity */
+  font-weight: bold;
 }
 
 .chart_container {
-    height: 600px;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 2%;
+  justify-content: space-around;
+  margin-top: 2%;
 }
 
 .spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-body {
-    background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .title {
-    text-align: center;
-    color: #fff;
-    margin-top: 40px;
+  text-align: center;
+  color: #fff;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .chart_container {
+    display: flex;
+  }
 }
