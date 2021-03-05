@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Util from "./Util";
-import "../shared/Chart.css";
+import React, { useState, useEffect } from 'react';
+import Util from './Util';
+import '../shared/Chart.css';
 
 interface ChartProps {
   data: IData[];

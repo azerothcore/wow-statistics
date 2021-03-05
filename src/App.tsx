@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Chart from "./components/shared/Chart";
-import axios from "axios";
-import "./components/shared/Chart.css";
-import Loader from "react-loader-spinner";
-import { mockData } from "./mockData";
-import { Footer } from "./components/Footer";
+import React, { useEffect, useState } from 'react';
+import Loader from 'react-loader-spinner';
+import { Footer } from './components/Footer';
+import Chart from './components/shared/Chart';
+import './components/shared/Chart.css';
+import { mockData } from './mockData';
 
 interface AppProps {}
 
@@ -33,7 +32,7 @@ const App: React.FC<AppProps> = () => {
         <h2 className="title">
           {!!process.env.REACT_APP_SERVER_TITLE
             ? process.env.REACT_APP_SERVER_TITLE
-            : "WoW"}{" "}
+            : 'WoW'}{' '}
           Statistics
         </h2>
         <div className="chart_container">
