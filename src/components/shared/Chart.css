@@ -4,14 +4,15 @@ body {
 }
 
 .chart {
+  float: left;
   width: 45%;
   height: 100%;
   background-color: black;
   border: 1px solid rgba(255, 255, 255, 0.3); /* white with a bit of opacity */
-  font-weight: bold;
 }
 
 .chart_container {
+  height: 600px;
   justify-content: space-around;
   margin-top: 2%;
 }
