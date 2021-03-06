@@ -13,7 +13,6 @@ let BRACKET_LEVEL_PREDICATES = {
 };
 
 const getPredicateByBracketLevel = (bracketLevel) => {
-    console.log("Selected predicate: " + BRACKET_LEVEL_PREDICATES[bracketLevel]);
     return BRACKET_LEVEL_PREDICATES[bracketLevel];
 }
 
@@ -72,6 +71,11 @@ const createChart = (data, chartName, chartType) => {
         bullet: process.env.PUBLIC_URL + '/wow-icons/' + chartType + '/' + (chartType === 'race' ? `${key}-${Math.round(Math.random())}` : key) + '.gif'
     }));
 
+    // add chart title
+    let title = localChart.titles.create();
+    title.text = chartName;
+    title.fill = am4core.color('#d0d0d0');
+
     // Create axis
     let categoryAxis = localChart.xAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = chartType;
@@ -96,6 +100,8 @@ const createChart = (data, chartName, chartType) => {
     let series = localChart.series.push(new am4charts.ColumnSeries());
     series.dataFields.valueY = "count";
     series.dataFields.categoryX = chartType;
+
+    series.columns.template.maxWidth = 50;
     series.columns.template.propertyFields.fill = "color";
     series.columns.template.propertyFields.stroke = "color";
     series.columns.template.column.cornerRadiusTopLeft = 15;

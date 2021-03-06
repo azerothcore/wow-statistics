@@ -9,12 +9,17 @@ function Chart(props) {
 
     useEffect(() => {
         const predicate = Util.getPredicateByBracketLevel(props.bracketLevel);
+
+        if (Object.keys(props.data).length === 0) {
+            return;
+        }
+
         setChart(Util.createChart(props.data.filter(predicate), props.chartName, props.chartType));
 
         return () => {
             chart && chart.dispose();
         }
-    }, [props.bracketLevel]);
+    }, [props.bracketLevel, props.data]);
 
 
     return (
