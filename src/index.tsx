@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import axios from "axios";
-import * as am4core from "@amcharts/amcharts4/core";
-
+import axios from 'axios';
+import * as am4core from '@amcharts/amcharts4/core';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
