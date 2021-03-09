@@ -1,6 +1,21 @@
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 
+const BRACKET_LEVEL_PREDICATES : {[key: number]:Function} = {
+  0: (player: any) => player, // no filter selected, default value
+  1: (player: any) => player.level < 20,
+  2: (player: any) => player.level > 20 && player.level < 30,
+  3: (player: any) => player.level > 30 && player.level < 40,
+  4: (player: any) => player.level > 40 && player.level < 50,
+  5: (player: any) => player.level > 50 && player.level < 60,
+  6: (player: any) => player.level > 60 && player.level < 70,
+  7: (player: any) => player.level > 70
+}
+
+const getPredicateByBracketLevel = (bracketLevel : number) => {
+  return BRACKET_LEVEL_PREDICATES[bracketLevel];
+}
+
 const groupBy = (list: any, props: any) => {
   return list.reduce((accumulator: any, currentValue: any) => {
     accumulator[currentValue[props]] =
@@ -63,6 +78,11 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
       '.gif',
   }));
 
+  // add chart title
+  let title = localChart.titles.create();
+  title.text = chartName;
+  title.fill = am4core.color('#d0d0d0');
+
   // Create axis
   let categoryAxis = localChart.xAxes.push(new am4charts.CategoryAxis());
   categoryAxis.dataFields.category = chartType;
@@ -91,6 +111,7 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
   series.columns.template.propertyFields.stroke = 'color';
   series.columns.template.column.cornerRadiusTopLeft = 15;
   series.columns.template.column.cornerRadiusTopRight = 15;
+  series.columns.template.maxWidth = 50;
 
   series.calculatePercent = true;
   series.columns.template.tooltipText = '{valueY.percent}%';
@@ -124,4 +145,4 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
   return localChart;
 };
 
-export default { groupBy, createChart };
+export default { groupBy, createChart, getPredicateByBracketLevel };
