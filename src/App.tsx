@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Loader from 'react-loader-spinner';
 import axios from 'axios';
 import { Footer } from './components/Footer/Footer';
-import BracketGroup from './components/brackets/BracketGroup'
+import BracketGroup from './components/brackets/BracketGroup';
 import Chart from './components/shared/Chart';
 import './components/shared/Chart.css';
 
@@ -12,8 +12,7 @@ const App: React.FC<AppProps> = () => {
   const [inputData, setInputData] = useState<IData[]>([]);
   const [bracketLevel, setBracketLevel] = useState(0);
 
-
-    useEffect(() => {
+  useEffect(() => {
     axios
       .get(process.env.REACT_APP_API_ENDPOINT!)
       .then((value) => setInputData(value.data))
@@ -37,14 +36,24 @@ const App: React.FC<AppProps> = () => {
             : 'WoW'}{' '}
           Statistics
         </h2>
-          <BracketGroup parentCallback={setBracketLevel}/>
+        <BracketGroup parentCallback={setBracketLevel} />
 
-          <div className="chart_container">
-              <Chart data={inputData} chartName="Race Population" chartType="race" bracketLevel={bracketLevel}/>
-              <Chart data={inputData} chartName="Class Population" chartType="class" bracketLevel={bracketLevel}/>
-          </div>
+        <div className='chart_container'>
+          <Chart
+            data={inputData}
+            chartName='Race Population'
+            chartType='race'
+            bracketLevel={bracketLevel}
+          />
+          <Chart
+            data={inputData}
+            chartName='Class Population'
+            chartType='class'
+            bracketLevel={bracketLevel}
+          />
+        </div>
 
-        <Footer/>
+        <Footer />
       </div>
     );
   }

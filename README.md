@@ -1,53 +1,22 @@
-# AzerothCore - Charts
-React chart component to display the race and class population.
+# WoW Statistics
 
-![WoW Statistics](https://raw.githubusercontent.com/azerothcore/wow-statistics/master/wow-statistics.png)
+This repository is a collection of React components to display useful information about the population as charts.
+
+![WoW Statistics](wow-statistics.png)
 
 ## Internals
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The chart was done with [AmChart 4](https://www.amcharts.com/).
+The chart was done with [AmChart 4](https://www.amcharts.com/) and inspired
+by [this example](https://www.amcharts.com/demos/column-chart-images-top/?theme=dark).
 
-Inspired by [this model](https://www.amcharts.com/demos/column-chart-images-top/?theme=dark).
+The application was safely typed with TypeScript.
 
-## Prerequisite
-Create a .env file and fill the properties:
-- REACT_APP_API_BASE_URL
-- REACT_APP_API_ENDPOINT
-- REACT_APP_SERVER_TITLE
+## Before running
 
-The format returned by the API backend should be:
-```json
-[
-  {
-    "guid": 34,
-    "name": "Lanaya",
-    "race": 11,
-    "class": 2,
-    "gender": 1,
-    "level": 19,
-    "map": 0,
-    "instance_id": 0,
-    "zone": 44,
-    "guildId": 1,
-    "guildName": "The Alliance"
-  },
-  {
-    "guid": 1992,
-    "name": "Margareth",
-    "race": 7,
-    "class": 8,
-    "gender": 1,
-    "level": 1,
-    "map": 0,
-    "instance_id": 0,
-    "zone": 1,
-    "guildId": null,
-    "guildName": null
-  }
-]
-
-```
+See [.env.example](.env.example) before running the application (at the moment we don't support a local profile, but you
+can mock it yourself using [this mocked json](src/mockData.json))
 
 ## Available Scripts
 
@@ -80,8 +49,22 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will
+remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right
+into your project so you have full control over them. All of the commands except `eject` will still work, but they will
+point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you
+shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t
+customize it when you are ready for it.
+
+## How to contribute
+
+- Required NPM 6.x and Node 12.x or 14.x installed
+- The recommended IDE: WebStorm or Visual Studio Code
+- Follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) guideline
+- Commit messages are formatted with [commit-lint](https://commitlint.js.org/#/)
+- Code is formatted with Prettier
+- Open pull-requests

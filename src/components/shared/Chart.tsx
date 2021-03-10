@@ -6,16 +6,15 @@ interface ChartProps {
   data: any;
   chartName: string;
   chartType: string;
-  bracketLevel: number
+  bracketLevel: number;
 }
 
 const Chart: React.FC<ChartProps> = ({
   data,
   chartName,
   chartType,
-  bracketLevel
+  bracketLevel,
 }: ChartProps) => {
-
   const [chart, setChart] = useState<any>();
 
   useEffect(() => {

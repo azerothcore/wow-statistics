@@ -1,7 +1,7 @@
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 
-const BRACKET_LEVEL_PREDICATES : {[key: number]:Function} = {
+const BRACKET_LEVEL_PREDICATES: { [key: number]: Function } = {
   0: (player: any) => player, // no filter selected, default value
   1: (player: any) => player.level < 20,
   2: (player: any) => player.level > 20 && player.level < 30,
@@ -9,12 +9,12 @@ const BRACKET_LEVEL_PREDICATES : {[key: number]:Function} = {
   4: (player: any) => player.level > 40 && player.level < 50,
   5: (player: any) => player.level > 50 && player.level < 60,
   6: (player: any) => player.level > 60 && player.level < 70,
-  7: (player: any) => player.level > 70
-}
+  7: (player: any) => player.level > 70,
+};
 
-const getPredicateByBracketLevel = (bracketLevel : number) => {
+const getPredicateByBracketLevel = (bracketLevel: number) => {
   return BRACKET_LEVEL_PREDICATES[bracketLevel];
-}
+};
 
 const groupBy = (list: any, props: any) => {
   return list.reduce((accumulator: any, currentValue: any) => {
@@ -136,7 +136,8 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
   let valueLabel = series.bullets.push(new am4charts.LabelBullet());
   valueLabel.label.fontSize = 13;
   valueLabel.label.align = 'center';
-  valueLabel.label.fill = am4core.color('#000');
+  valueLabel.label.fill = am4core.color('#000000');
+  valueLabel.label.fontWeight = 'bold';
   valueLabel.label.text = '{valueY} \n {valueY.percent}%';
   valueLabel.horizontalCenter = 'left';
   valueLabel.verticalCenter = 'top';
