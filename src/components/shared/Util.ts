@@ -2,15 +2,15 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 
 const BRACKET_LEVEL_PREDICATES: { [key: number]: Function } = {
-  0: (player: any) => player, // no filter selected, default value
-  1: (player: any) => player.level < 20,
-  2: (player: any) => player.level >= 20 && player.level <= 30,
-  3: (player: any) => player.level >= 30 && player.level <= 40,
-  4: (player: any) => player.level >= 40 && player.level <= 50,
-  5: (player: any) => player.level >= 50 && player.level <= 60,
-  6: (player: any) => player.level >= 60 && player.level <= 70,
-  7: (player: any) => player.level >= 70 && player.level <= 80,
-  8: (player: any) => player.level === 80,
+  0: (player: any) => player, // no filter selected, show all levels
+  1: (player: any) => player.level < 20, // show 1-19
+  2: (player: any) => player.level >= 20 && player.level < 30,
+  3: (player: any) => player.level >= 30 && player.level < 40,
+  4: (player: any) => player.level >= 40 && player.level < 50,
+  5: (player: any) => player.level >= 50 && player.level < 60,
+  6: (player: any) => player.level >= 60 && player.level < 70,
+  7: (player: any) => player.level >= 70 && player.level < 80,
+  8: (player: any) => player.level === 80, // show 80 only
 };
 
 const getPredicateByBracketLevel = (bracketLevel: number) => {
