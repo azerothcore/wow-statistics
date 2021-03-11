@@ -1,4 +1,3 @@
-/*We can use scoped css for each component but the setting were almost the same everytime*/
 body {
   background-color: black;
 }
@@ -12,7 +11,7 @@ body {
 }
 
 .chart_container {
-  height: 600px;
+  height: 500px;
   display: flex;
   justify-content: space-around;
   margin-top: 2%;

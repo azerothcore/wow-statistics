@@ -9,11 +9,7 @@ export const Footer: React.FC<FooterProps> = () => {
       <hr />
       <p>
         ●{' '}
-        <a
-          target='_blank'
-          href='https://github.com/azerothcore/wow-statistics'
-          rel='noreferrer'
-        >
+        <a target='_blank' href='https://github.com/azerothcore/wow-statistics' rel='noreferrer'>
           <strong>Wow Statistics</strong>
         </a>{' '}
         for{' '}
@@ -32,8 +28,7 @@ export const Footer: React.FC<FooterProps> = () => {
         <a
           target='_blank'
           href='https://github.com/azerothcore/wow-statistics/blob/master/LICENSE'
-          rel='noreferrer'
-        >
+          rel='noreferrer'>
           GNU AGPL license
         </a>{' '}
         ●
