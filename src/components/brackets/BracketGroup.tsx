@@ -10,15 +10,14 @@ const options: { [key: string]: string } = {
   '5': '50-59',
   '6': '60-69',
   '7': '70-80',
+  '8': '80',
 };
 
 interface BracketProps {
   parentCallback: any;
 }
 
-const BracketGroup: React.FC<BracketProps> = ({
-  parentCallback,
-}: BracketProps) => {
+const BracketGroup: React.FC<BracketProps> = ({ parentCallback }: BracketProps) => {
   const handleClick = (id: number) => {
     parentCallback(id);
   };
@@ -32,8 +31,7 @@ const BracketGroup: React.FC<BracketProps> = ({
             key={key}
             name={options[key]}
             onClick={() => handleClick(key)}
-            className='bracketButton'
-          >
+            className='bracketButton'>
             {options[key]}
           </button>
         ))}

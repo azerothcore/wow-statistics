@@ -4,12 +4,13 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 const BRACKET_LEVEL_PREDICATES: { [key: number]: Function } = {
   0: (player: any) => player, // no filter selected, default value
   1: (player: any) => player.level < 20,
-  2: (player: any) => player.level > 20 && player.level < 30,
-  3: (player: any) => player.level > 30 && player.level < 40,
-  4: (player: any) => player.level > 40 && player.level < 50,
-  5: (player: any) => player.level > 50 && player.level < 60,
-  6: (player: any) => player.level > 60 && player.level < 70,
-  7: (player: any) => player.level > 70,
+  2: (player: any) => player.level >= 20 && player.level <= 30,
+  3: (player: any) => player.level >= 30 && player.level <= 40,
+  4: (player: any) => player.level >= 40 && player.level <= 50,
+  5: (player: any) => player.level >= 50 && player.level <= 60,
+  6: (player: any) => player.level >= 60 && player.level <= 70,
+  7: (player: any) => player.level >= 70 && player.level <= 80,
+  8: (player: any) => player.level === 80,
 };
 
 const getPredicateByBracketLevel = (bracketLevel: number) => {
@@ -18,8 +19,7 @@ const getPredicateByBracketLevel = (bracketLevel: number) => {
 
 const groupBy = (list: any, props: any) => {
   return list.reduce((accumulator: any, currentValue: any) => {
-    accumulator[currentValue[props]] =
-      accumulator[currentValue[props]] + 1 || 1;
+    accumulator[currentValue[props]] = accumulator[currentValue[props]] + 1 || 1;
     return accumulator;
   }, []);
 };

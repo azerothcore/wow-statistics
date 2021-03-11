@@ -16,9 +16,7 @@ const App: React.FC<AppProps> = () => {
     axios
       .get(process.env.REACT_APP_API_ENDPOINT!)
       .then((value) => setInputData(value.data))
-      .catch((error) =>
-        console.error('Could not get data for the charts' + error)
-      );
+      .catch((error) => console.error('Could not get data for the charts' + error));
   }, []);
 
   if (inputData === null) {
@@ -31,9 +29,7 @@ const App: React.FC<AppProps> = () => {
     return (
       <div className='App'>
         <h2 className='title'>
-          {!!process.env.REACT_APP_SERVER_TITLE
-            ? process.env.REACT_APP_SERVER_TITLE
-            : 'WoW'}{' '}
+          {!!process.env.REACT_APP_SERVER_TITLE ? process.env.REACT_APP_SERVER_TITLE : 'WoW'}{' '}
           Statistics
         </h2>
         <BracketGroup parentCallback={setBracketLevel} />

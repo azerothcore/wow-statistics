@@ -9,12 +9,7 @@ interface ChartProps {
   bracketLevel: number;
 }
 
-const Chart: React.FC<ChartProps> = ({
-  data,
-  chartName,
-  chartType,
-  bracketLevel,
-}: ChartProps) => {
+const Chart: React.FC<ChartProps> = ({ data, chartName, chartType, bracketLevel }: ChartProps) => {
   const [chart, setChart] = useState<any>();
 
   useEffect(() => {
