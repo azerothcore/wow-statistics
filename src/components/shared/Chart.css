@@ -3,7 +3,7 @@ body {
 }
 
 .chart {
-  float: left;
+  display: flex;
   width: 45%;
   height: 100%;
   background-color: black;
@@ -11,8 +11,8 @@ body {
 }
 
 .chart_container {
-  height: 500px;
   display: flex;
+  height: 500px;
   justify-content: space-around;
   margin-top: 2%;
 }
@@ -28,4 +28,17 @@ body {
   text-align: center;
   color: #fff;
   margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .chart_container {
+    flex-direction: column;
+    min-width: 100%;
+  }
+
+  .chart {
+    min-width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
 }

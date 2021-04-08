@@ -3,7 +3,7 @@ import Util from './Util';
 import '../shared/Chart.css';
 
 interface ChartProps {
-  data: any;
+  data: IData[];
   chartName: string;
   chartType: string;
   bracketLevel: number;
@@ -19,7 +19,7 @@ const Chart: React.FC<ChartProps> = ({ data, chartName, chartType, bracketLevel 
       return;
     }
 
-    setChart(Util.createChart(data.filter(predicate), chartName, chartType));
+    setChart(Util.createChart(data.filter(predicate as any), chartName, chartType));
 
     return () => {
       chart && chart.dispose();

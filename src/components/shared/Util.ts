@@ -17,8 +17,8 @@ const getPredicateByBracketLevel = (bracketLevel: number) => {
   return BRACKET_LEVEL_PREDICATES[bracketLevel];
 };
 
-const groupBy = (list: any, props: any) => {
-  return list.reduce((accumulator: any, currentValue: any) => {
+const groupBy = (list: IData[], props: string) => {
+  return list.reduce((accumulator: any[], currentValue: any): string[] => {
     accumulator[currentValue[props]] = accumulator[currentValue[props]] + 1 || 1;
     return accumulator;
   }, []);
