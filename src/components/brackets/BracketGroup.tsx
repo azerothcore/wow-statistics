@@ -14,7 +14,7 @@ const options: { [key: string]: string } = {
 };
 
 interface BracketProps {
-  parentCallback: any;
+  parentCallback: (bracketId: number) => void;
 }
 
 const BracketGroup: React.FC<BracketProps> = ({ parentCallback }: BracketProps) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Loader from 'react-loader-spinner';
 import axios from 'axios';
-import { Footer } from './components/Footer/Footer';
+import { Footer } from './components/footer/Footer';
 import BracketGroup from './components/brackets/BracketGroup';
 import Chart from './components/shared/Chart';
 import './components/shared/Chart.css';
