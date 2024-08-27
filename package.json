@@ -1,53 +1,45 @@
 {
   "name": "statistics",
   "homepage": ".",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@amcharts/amcharts4": "^4.10.15",
+    "@amcharts/amcharts4": "^4.10.39",
     "@amcharts/amcharts4-fonts": "^4.0.1",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.6.3",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.31",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
-    "axios": "^0.21.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-loader-spinner": "^4.0.0",
-    "react-scripts": "^4.0.3",
-    "typescript": "^4.2.2",
-    "web-vitals": "^1.1.0"
+    "@vitejs/plugin-react": "^4.3.1",
+    "axios": "^1.7.5",
+    "browserslist": "^4.23.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-loader-spinner": "^6.1.6",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "prettier": "prettier --write .",
+    "lint:fix": "npm run lint && npm run prettier"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "prettier"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "maintained node versions"
+  ],
   "devDependencies": {
-    "eslint-config-prettier": "^8.1.0",
-    "prettier": "2.2.1"
+    "@types/node": "^20.16.1",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "prettier": "^2.2.1"
+  },
+  "engines": {
+    "npm": ">=10.8.2",
+    "node": ">=20.17.0"
   }
 }
