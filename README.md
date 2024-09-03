@@ -1,22 +1,27 @@
 # WoW Statistics
 
-This repository is a collection of React components to display useful information about the population as charts.
+This repository is a collection of React components to display useful information as charts about the server population.
 
 ![WoW Statistics](wow-statistics.png)
 
 ## Internals
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is built using [Vite](https://vitejs.dev/), a modern build tool that provides a faster development experience compared to traditional bundlers like Webpack.
 
 The chart was done with [AmChart 4](https://www.amcharts.com/) and inspired by [this example](https://www.amcharts.com/demos/column-chart-images-top/?theme=dark).
 
-The application was safely typed with TypeScript.
+The application was safely typed with [TypeScript](https://www.typescriptlang.org/).
 
-## Before running
+## How to run
 
-See [.env.example](.env.example) before running the application (at the moment we don't support a local profile, but you can mock it yourself using [this mocked json](src/mockData.json))
+1. Setup .env to your server (check [.env.example](.env.example))
+2. Install NPM 10.x and Node 20.x or later via [NVM](https://github.com/nvm-sh/nvm)
+3. npm install
+4. npm start
 
-## Available Scripts
+Dev/Local profile support is not currently available (see https://github.com/azerothcore/wow-statistics/issues/8), but you can mock data using [this mocked JSON](src/mockData.json).
+
+## Available Commands
 
 In the project directory, you can run:
 
@@ -28,11 +33,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -41,22 +41,26 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run preview`
 
-### `npm run eject`
+Previews the production build locally.\
+This command serves the build files, allowing you to see how your app will look in production before deploying.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `npm run lint`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Runs ESLint on the project files with .js, .jsx, .ts, and .tsx extensions and attempts to fix any fixable issues.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `npm run prettier`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Formats the project files using Prettier. This will apply code style changes to the files.
+
+### `npm run lint:fix`
+
+Runs ESLint to fix issues and then runs Prettier to format the code. This ensures that the code is both linted and formatted.
 
 ## How to contribute
 
-- Required NPM 6.x and Node 12.x or 14.x installed
-- The recommended IDE: WebStorm or Visual Studio Code
+- Install Visual Studio Code
 - Follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) guideline
 - Commit messages are formatted with [commit-lint](https://commitlint.js.org/#/)
 - Code is formatted with Prettier

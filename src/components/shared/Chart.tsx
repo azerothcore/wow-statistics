@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Util from './Util';
 import '../shared/Chart.css';
 
@@ -9,7 +9,7 @@ interface ChartProps {
   bracketLevel: number;
 }
 
-const Chart: React.FC<ChartProps> = ({ data, chartName, chartType, bracketLevel }: ChartProps) => {
+const Chart = ({ data, chartName, chartType, bracketLevel }: ChartProps) => {
   const [chart, setChart] = useState<any>();
 
   useEffect(() => {
@@ -22,7 +22,9 @@ const Chart: React.FC<ChartProps> = ({ data, chartName, chartType, bracketLevel 
     setChart(Util.createChart(data.filter(predicate as any), chartName, chartType));
 
     return () => {
-      chart && chart.dispose();
+      if (chart) {
+        chart.dispose();
+      }
     };
   }, [data, bracketLevel]);
 

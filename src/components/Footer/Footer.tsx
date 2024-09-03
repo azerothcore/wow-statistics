@@ -1,9 +1,6 @@
-import React from 'react';
 import './Footer.css';
 
-interface FooterProps {}
-
-export const Footer: React.FC<FooterProps> = () => {
+const Footer = () => {
   return (
     <footer>
       <hr />
@@ -17,8 +14,8 @@ export const Footer: React.FC<FooterProps> = () => {
           ChromieCraft
         </a>{' '}
         is free software created by{' '}
-        <a target='_blank' href='https://github.com/Hacaw' rel='noreferrer'>
-          <strong>Hacaw</strong>
+        <a target='_blank' href='https://github.com/alecsci' rel='noreferrer'>
+          <strong>Alecsci</strong>
         </a>{' '}
         and{' '}
         <a target='_blank' href='https://github.com/Helias' rel='noreferrer'>
@@ -28,7 +25,8 @@ export const Footer: React.FC<FooterProps> = () => {
         <a
           target='_blank'
           href='https://github.com/azerothcore/wow-statistics/blob/master/LICENSE'
-          rel='noreferrer'>
+          rel='noreferrer'
+        >
           GNU AGPL license
         </a>{' '}
         ●
@@ -36,3 +34,5 @@ export const Footer: React.FC<FooterProps> = () => {
     </footer>
   );
 };
+
+export default Footer;

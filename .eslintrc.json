@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "jsx": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off", // Required for React 17+,
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Adjust if needed
+    "@typescript-eslint/no-explicit-any": "warn", // Prefer avoiding `any`
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-unused-vars": "off" // TypeScript handles this
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

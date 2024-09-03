@@ -1,16 +1,22 @@
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 
-const BRACKET_LEVEL_PREDICATES: { [key: number]: Function } = {
-  0: (player: any) => player, // no filter selected, show all levels
-  1: (player: any) => player.level < 20, // show 1-19
-  2: (player: any) => player.level >= 20 && player.level < 30,
-  3: (player: any) => player.level >= 30 && player.level < 40,
-  4: (player: any) => player.level >= 40 && player.level < 50,
-  5: (player: any) => player.level >= 50 && player.level < 60,
-  6: (player: any) => player.level >= 60 && player.level < 70,
-  7: (player: any) => player.level >= 70 && player.level < 80,
-  8: (player: any) => player.level === 80, // show 80 only
+interface Player {
+  level: number;
+}
+
+type Predicate = (player: Player) => boolean;
+
+const BRACKET_LEVEL_PREDICATES: { [key: number]: Predicate } = {
+  0: () => true, // no filter selected, show all levels
+  1: (player: Player) => player.level < 20, // show 1-19
+  2: (player: Player) => player.level >= 20 && player.level < 30,
+  3: (player: Player) => player.level >= 30 && player.level < 40,
+  4: (player: Player) => player.level >= 40 && player.level < 50,
+  5: (player: Player) => player.level >= 50 && player.level < 60,
+  6: (player: Player) => player.level >= 60 && player.level < 70,
+  7: (player: Player) => player.level >= 70 && player.level < 80,
+  8: (player: Player) => player.level === 80, // show 80 only
 };
 
 const getPredicateByBracketLevel = (bracketLevel: number) => {
@@ -58,7 +64,7 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
     return;
   }
 
-  let localChart = am4core.create(chartName, am4charts.XYChart);
+  const localChart = am4core.create(chartName, am4charts.XYChart);
 
   localChart.numberFormatter.numberFormat = '#.##';
 
@@ -70,7 +76,7 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
     count: myMap[key],
     color: chartType === 'race' ? raceColors[key - 1] : classColors[key - 1],
     bullet:
-      process.env.PUBLIC_URL +
+      import.meta.env.VITE_PUBLIC_URL +
       '/wow-icons/' +
       chartType +
       '/' +
@@ -79,12 +85,12 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
   }));
 
   // add chart title
-  let title = localChart.titles.create();
+  const title = localChart.titles.create();
   title.text = chartName;
   title.fill = am4core.color('#d0d0d0');
 
   // Create axis
-  let categoryAxis = localChart.xAxes.push(new am4charts.CategoryAxis());
+  const categoryAxis = localChart.xAxes.push(new am4charts.CategoryAxis());
   categoryAxis.dataFields.category = chartType;
   categoryAxis.renderer.grid.template.disabled = true;
   categoryAxis.renderer.minGridDistance = 30;
@@ -93,7 +99,7 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
   categoryAxis.renderer.labels.template.fontSize = 15;
   categoryAxis.renderer.labels.template.disabled = true;
 
-  let valueAxis = localChart.yAxes.push(new am4charts.ValueAxis());
+  const valueAxis = localChart.yAxes.push(new am4charts.ValueAxis());
   valueAxis.renderer.grid.template.strokeDasharray = '4,4';
   valueAxis.min = 0;
 
@@ -104,7 +110,7 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
   localChart.paddingBottom = 0;
 
   // Create series
-  let series = localChart.series.push(new am4charts.ColumnSeries());
+  const series = localChart.series.push(new am4charts.ColumnSeries());
   series.dataFields.valueY = 'count';
   series.dataFields.categoryX = chartType;
   series.columns.template.propertyFields.fill = 'color';
@@ -120,8 +126,8 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
   categoryAxis.sortBySeries = series;
 
   // Add bullet icons
-  let bullet = series.bullets.push(new am4charts.Bullet());
-  let image = bullet.createChild(am4core.Image);
+  const bullet = series.bullets.push(new am4charts.Bullet());
+  const image = bullet.createChild(am4core.Image);
   image.horizontalCenter = 'middle';
   image.verticalCenter = 'bottom';
   image.propertyFields.href = 'bullet';
@@ -133,7 +139,7 @@ const createChart = (data: IData[], chartName: string, chartType: string) => {
   image.filters.push(new am4core.DropShadowFilter());
 
   // add text labels on y chart
-  let valueLabel = series.bullets.push(new am4charts.LabelBullet());
+  const valueLabel = series.bullets.push(new am4charts.LabelBullet());
   valueLabel.label.fontSize = 13;
   valueLabel.label.align = 'center';
   valueLabel.label.fill = am4core.color('#000000');

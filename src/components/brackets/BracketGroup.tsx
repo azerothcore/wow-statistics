@@ -1,4 +1,3 @@
-import React from 'react';
 import './BracketGroup.css';
 
 const options: { [key: string]: string } = {
@@ -17,7 +16,7 @@ interface BracketProps {
   parentCallback: (bracketId: number) => void;
 }
 
-const BracketGroup: React.FC<BracketProps> = ({ parentCallback }: BracketProps) => {
+const BracketGroup = ({ parentCallback }: BracketProps) => {
   const handleClick = (id: number) => {
     parentCallback(id);
   };
@@ -31,7 +30,8 @@ const BracketGroup: React.FC<BracketProps> = ({ parentCallback }: BracketProps) 
             key={key}
             name={options[key]}
             onClick={() => handleClick(key)}
-            className='bracketButton'>
+            className='bracketButton'
+          >
             {options[key]}
           </button>
         ))}
