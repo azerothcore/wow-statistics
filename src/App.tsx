@@ -1,8 +1,8 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
-import axios from 'axios';
-import Footer from './components/footer/Footer';
 import BracketGroup from './components/brackets/BracketGroup';
+import Footer from './components/Footer/Footer';
 import Chart from './components/shared/Chart';
 import './components/shared/Chart.css';
 
